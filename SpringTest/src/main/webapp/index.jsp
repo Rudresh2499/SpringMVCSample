@@ -1,17 +1,58 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Form</title>
-    </head>
-    <body>
-        <form method="POST">
-            <input type="text" placeholder="username" name="username">
-            <input type="password" placeholder="password" name="password">
-            <input type="submit" value="Login" formaction="Login"><input type="submit" value="Sign Up" formaction="signUp.jsp">
-         </form>
-    </body>
+<head>
+	<title>Student Management</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".teacher-signup-form").hide();
+			$(".teacher").css("background","none");
+
+			$(".teacher").click(function(){
+				$(".student-signup-form").hide();
+				$(".teacher-signup-form").show();
+				$(".student").css("background","none");
+				$(".teacher").css("background","#fff");
+			});
+
+			$(".student").click(function(){
+				$(".teacher-signup-form").hide();
+				$(".student-signup-form").show();
+				$(".teacher").css("background","none");
+				$(".student").css("background","#fff");
+			})
+
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="student">Student</div>
+		<div class="teacher">Teacher</div>
+
+		<div class="student-signup-form">
+			<form method="POST" action="#">
+				<input type="number" name="studentID" placeholder="Enrollment number" class="input" required=""><br>
+				<!-- <input type="email" name="" placeholder="Email Address" class="input"><br> -->
+				<input type="password" name="studentPassword" placeholder="Password" class="input" required=""><br>
+				<div class="btn">
+					<button>Login</button>
+				</div>
+			</form>
+			
+		</div>
+		<div class="teacher-signup-form">
+			<form method="POST" action="#">
+				<input type="number" name="TeacherID" placeholder="Teachers ID" class="input" required=""><br>
+				<!-- <input type="email" name="" placeholder="Email Address" class="input"><br> -->
+				<input type="password" name="TeacherPassword" placeholder="Password" class="input" required=""><br>
+				<div class="btn">
+					<button>Login</button>
+				</div>
+			</form>
+			
+		</div>
+	</div>
+</body>
 </html>
